@@ -1,4 +1,4 @@
-module example.com/m
+module github.com/jrsdav/gojects/aws/orgtags
 
 go 1.14
 
