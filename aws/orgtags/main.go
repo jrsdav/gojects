@@ -19,7 +19,7 @@ func main() {
 		NextToken: new(string), // New this up for the first loop iteration to not be nil
 	}
 
-	for input.NextToken != nil {
+	for {
 		input.NextToken = result.NextToken
 		// List all the accounts in the organization
 		result, err = svc.ListAccounts(input)
@@ -47,6 +47,9 @@ func main() {
 					fmt.Printf("%s: %s \n", *acc.Id, *tags.Value)
 				}
 			}
+		}
+		if result.NextToken == nil {
+			break
 		}
 	}
 }
